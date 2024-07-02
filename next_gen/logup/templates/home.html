@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<body>
+    <section>
+      <div class="container">
+        <div class="user signinBx">
+          <div class="imgBx"><img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img1.jpg" alt="" /></div>
+          <div class="formBx">
+            
+            <a href="{% url "login" %}" >
+                <img src="{% static 'image/chatbot.png' %}" class="card-img-top" alt="..." style="width: 500px; height: 450px;">   
+        
+               </a>
+          </div>
+         
+        </div>
+      
+      </div>
+    </section>
+   
+
+
+
+{% endblock  %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section>
+  <div class="container">
+    <div class="user signinBx">
+      <div class="imgBx"><img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img1.jpg" alt="" /></div>
+      <div class="formBx">
+      <form action="" method="post" >
+        {% csrf_token %}
+        <h2>Create an account</h2>
+        {% comment %} <input type="text" name="username" required placeholder="Username" /> {% endcomment %}
+        <input type="email" name="email" required placeholder="Email Address" />
+        <input type="password" name="password" required placeholder="Create Password" />
+        <input type="password" name="password_confirm" required placeholder="Confirm Password" />
+        <button type="submit" class="signup-button">Sign Up  </button>
+        {% comment %} <button type="submit">Sign Up</button> {% endcomment %}
+
+        <p class="signup">
+          Already have an account ?
+          <a href="{% url "login" %}" >Login</a>
+        </p>
+      </form> 
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+{% endblock  %}
