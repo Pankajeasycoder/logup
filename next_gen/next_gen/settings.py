@@ -25,9 +25,11 @@ SECRET_KEY = 'django-insecure-m=90*xv8^100r@sehxkf%ivsj=rg%%=&^n8h^4^6qn=(i_^(u%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
-
+SECURE_SSL_REDIRECT=False
+SESSION_COOKIE_SECURE=False
+CSRF_COOKIE_SECURE=False
 # Application definition
 
 INSTALLED_APPS = [
@@ -81,13 +83,28 @@ DATABASES = {
 		'USER': 'root',
 		'PASSWORD': 'admin@1234',
 		'HOST':'localhost',
-		'PORT':'',
+		'PORT':'3306',
 	}
 }
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',     
+#         'NAME': 'mydb',                           
+#         'USER': 'admin',                           
+#         'PASSWORD': 'Pk987654321',                 
+#         'HOST': 'rds.c9kw0iq4uixo.ap-southeast-2.rds.amazonaws.com',  
+#         'PORT': '3306',                           
+        
+#     }
+# }
+
+
+
 # Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/5.0/ref/setting
+# s/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -133,3 +150,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = "logup.User"
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}

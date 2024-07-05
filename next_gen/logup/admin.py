@@ -38,3 +38,27 @@ class UserAdmin(BaseUserAdmin):
 # Now register the new UserAdmin...
 admin.site.register(User, UserAdmin)
 # admin.site.register(Summary)
+admin.site.unregister(Group)
+
+@admin.register(OTPModel)
+class OTPAdmin(admin.ModelAdmin):
+    list_display= ['user','otp']
+
+
+@admin.register(DealerProfileModel)
+class DealerProfileAdmin(admin.ModelAdmin):
+    list_display= ['user']
+    # ,'company_name'
+
+@admin.register(ClientProfileModel)
+class CostomerAdmin(admin.ModelAdmin):
+    list_display= ['user','gender','address','profile_picture']
+
+@admin.register(JobTypeModel)
+class JobTypeAdmin(admin.ModelAdmin):
+    list_display= ['job_type_title','job_type_desc']
+
+@admin.register(JobCategoryModel)
+class JobCategoryAdmin(admin.ModelAdmin):
+    list_display= ['category_title','category_desc']
+    
